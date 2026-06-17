@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+.env/
+
+# PyTorch
+*.pth
+*.pt
+save_model/
+
+# Dataset
+cifar10/
+data/
+data_name/
+
+# IDE
+.idea/
+.vscode/
+
+# Images (已生成的曲线图可保留但不上传)
+*.png
+*.jpg
+*.jpeg
+
+# OS
+.DS_Store
+Thumbs.db
