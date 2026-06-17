@@ -135,7 +135,7 @@ loss_val = []
 acc_val = []
 
 
-epoch = 2
+epoch = 100
 best_acc = 0
 for t in range(epoch):
     print(f"epoch{t+1}\n-----------")
