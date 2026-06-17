@@ -26,7 +26,9 @@ normalize = transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
 
 train_transform = transforms.Compose([
     transforms.Resize((224, 224)),
-    transforms.RandomVerticalFlip(),
+    transforms.RandomHorizontalFlip(p=0.5),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
+    transforms.RandomRotation(10),
     transforms.ToTensor(),
     normalize])
 

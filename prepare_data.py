@@ -10,7 +10,12 @@ print("正在读取本地 CIFAR-10 数据...")
 # 直接从 pickle 文件加载（避免联网下载）
 def unpickle(file):
     with open(file, 'rb') as fo:
-        return pickle.load(fo)
+        data = pickle.load(fo, encoding='bytes')
+        # 兼容 bytes key（原始 CIFAR-10）和 str key（生成数据）
+        keys = list(data.keys())
+        if keys and isinstance(keys[0], bytes):
+            return {k.decode(): v for k, v in data.items()}
+        return data
 
 batches = []
 for i in range(1, 6):
