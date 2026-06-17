@@ -20,10 +20,16 @@ data_name/
 .idea/
 .vscode/
 
-# Images (已生成的曲线图可保留但不上传)
+# Images (根目录图片不上传)
 *.png
 *.jpg
 *.jpeg
+
+# 训练产出物跟踪 (artifacts/ 上传，模型权重太大请用 GitHub Releases)
+!artifacts/
+artifacts/*
+!artifacts/*.png
+!artifacts/*.jpg
 
 # OS
 .DS_Store

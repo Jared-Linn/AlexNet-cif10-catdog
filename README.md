@@ -15,8 +15,9 @@ AlexNet/
 ├── test01.py               # Tkinter GUI 推理脚本 (选择图片预测 / 验证集随机测试)
 ├── prepare_data.py         # 从 CIFAR-10 pickle 中提取猫狗图片各 500 张
 ├── split_data.py           # 将图片按 8:2 划分为 train / val
-├── acc_curve.png           # 训练过程准确率曲线 (自动生成)
-├── loss_curve.png          # 训练过程损失曲线 (自动生成)
+├── artifacts/               # 训练产出物 (曲线图等)
+│   ├── acc_curve.png       # 准确率曲线
+│   └── loss_curve.png      # Loss曲线
 ├── save_model/
 │   ├── best_model1.pth     # 验证集上最佳模型权重
 │   └── last_model1.pth     # 最后一轮模型权重
@@ -167,7 +168,7 @@ python test01.py
 
 | Loss 曲线 | Accuracy 曲线 |
 |:---:|:---:|
-| ![loss](loss_curve.png) | ![acc](acc_curve.png) |
+| ![loss](artifacts/loss_curve.png) | ![acc](artifacts/acc_curve.png) |
 
 > ✅ CIFAR-10 猫狗分类（32×32 原生分辨率上采样到 224×224），验证集准确率可达 **~75%**（最佳 75.48%）。
 >

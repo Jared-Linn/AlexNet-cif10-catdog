@@ -113,9 +113,9 @@ def matplot_loss(train_loss, val_loss):
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.title("训练集和验证集loss值对比图")
-    plt.savefig('loss_curve.png', dpi=150)
+    plt.savefig('artifacts/loss_curve.png', dpi=150)
     plt.close()
-    print("loss曲线已保存到 loss_curve.png")
+    print("loss曲线已保存到 artifacts/loss_curve.png")
 
 def matplot_acc(train_acc, val_acc):
     plt.plot(train_acc, label='train_acc')
@@ -124,9 +124,9 @@ def matplot_acc(train_acc, val_acc):
     plt.ylabel('acc')
     plt.xlabel('epoch')
     plt.title("训练集和验证集acc值对比图")
-    plt.savefig('acc_curve.png', dpi=150)
+    plt.savefig('artifacts/acc_curve.png', dpi=150)
     plt.close()
-    print("acc曲线已保存到 acc_curve.png")
+    print("acc曲线已保存到 artifacts/acc_curve.png")
 
 
 

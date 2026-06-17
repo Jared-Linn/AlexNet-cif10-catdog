@@ -42,8 +42,9 @@ AlexNet/
 ├── test01.py               # Tkinter GUI 推理脚本
 ├── prepare_data.py         # 从 CIFAR-10 pickle 提取猫狗图片
 ├── split_data.py           # 8:2 划分训练/验证集
-├── acc_curve.png           # 准确率曲线 (自动生成)
-├── loss_curve.png          # Loss 曲线 (自动生成)
+├── artifacts/               # 训练产出物
+│   ├── acc_curve.png       # 准确率曲线
+│   └── loss_curve.png      # Loss曲线
 ├── .gitignore
 ├── README.md
 ├── docs/
@@ -233,7 +234,7 @@ python test01.py
 2. 归一化：Normalize(mean=0.5, std=0.5)
 3. SGD 优化，StepLR 学习率衰减
 4. 每轮保存最佳模型
-**输出：** 模型权重、loss_curve.png、acc_curve.png
+**输出：** `artifacts/` 下 loss/acc 曲线图 + `save_model/` 下模型权重
 
 ### 8.4 GUI 推理 (test01.py)
 
