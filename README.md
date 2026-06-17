@@ -141,7 +141,7 @@ python train.py
 
 - ✅ **自动保存最佳模型** — 验证集准确率最高时保存到 `save_model/best_model1.pth`
 - ✅ **学习率衰减** — 每 10 轮学习率减半，帮助收敛
-- ✅ **Loss/Acc 曲线** — 训练结束后自动生成 `loss_curve.png` 和 `acc_curve.png`
+- ✅ **Loss/Acc 曲线** — 训练结束后自动生成到 `artifacts/` 目录
 
 ---
 
@@ -158,7 +158,7 @@ python test01.py
 2. **开始预测** — 显示预测结果 "cat" 或 "dog"
 3. **随机测试验证集 10 张** — 从验证集随机抽 10 张图片，依次显示并输出预测结果到控制台
 
-![GUI 截图示意](./screenshot.png)
+> 💡 截图示例：运行后选择一张猫/狗图片即可看到预测结果（可自行截图放入 `artifacts/screenshot.png`）
 
 ---
 
