@@ -46,8 +46,8 @@ AlexNet/
 
 | 层 | 类型 | 参数 | 输出尺寸 |
 |---|------|------|---------|
-| c1 | Conv2D | 3→48, 11×11, s=4, p=2 | 48×55×55 |
-| c2 | Conv2D | 48→128, 5×5, s=1, p=2 | 128×55×55 |
+| c1 | Conv2D | 3→48, 11×11, s=4, p=2 | 48×54×54 |
+| c2 | Conv2D | 48→128, 5×5, s=1, p=2 | 128×54×54 |
 | s2 | MaxPool2D | k=2 | 128×27×27 |
 | c3 | Conv2D | 128→192, 3×3, s=1, p=1 | 192×27×27 |
 | s3 | MaxPool2D | k=2 | 192×13×13 |
@@ -87,15 +87,15 @@ pip install torch torchvision numpy pillow matplotlib
 
 项目从 **CIFAR-10** 中提取猫（label=3）和狗（label=5）图片各 500 张。
 
-1️⃣ **下载 CIFAR-10**（Python 版），解压后放到 `cifar10/cifar-10-batches-py/`：
+1️⃣ **获取 CIFAR-10 pickle 文件**，放到 `cifar10/cifar-10-batches-py/`：
 
 ```bash
-# 方式 A：官网下载
+# 方式 A：GitCode 镜像（国内推荐）
+git clone https://gitcode.com/open-source-toolkit/94ecd.git tmp
+# 解压 RAR 文件到 cifar10/ 目录
+# 方式 B：官网下载
 wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
 tar -xzf cifar-10-python.tar.gz -C cifar10/
-
-# 方式 B：使用 torchvision（会自动下载到 cache 目录）
-python -c "from torchvision.datasets import CIFAR10; CIFAR10(root='./cifar10', download=True)"
 ```
 
 2️⃣ **提取猫狗图片：**
@@ -103,7 +103,7 @@ python -c "from torchvision.datasets import CIFAR10; CIFAR10(root='./cifar10', d
 ```bash
 python prepare_data.py
 ```
-→ 在 `data_name/cat/` 和 `data_name/dog/` 各生成 500 张 32×32 图片。
+→ 从本地 pickle 读取，在 `data_name/cat/` 和 `data_name/dog/` 各生成 500 张 32×32 图片。
 
 3️⃣ **划分训练集 & 验证集（8:2）：**
 
@@ -169,7 +169,7 @@ python test01.py
 |:---:|:---:|
 | ![loss](loss_curve.png) | ![acc](acc_curve.png) |
 
-> ✅ CIFAR-10 猫狗分类（32×32 原生分辨率上采样到 224×224），验证集准确率可达到 **~70-75%**。
+> ✅ CIFAR-10 猫狗分类（32×32 原生分辨率上采样到 224×224），验证集准确率可达 **~75%**（最佳 75.48%）。
 >
 > ⚠️ CIFAR-10 图片分辨率较低（32×32），上采样到 224×224 会有信息损失，如果想获得更高准确率，建议使用真实高清猫狗数据集（如 Kaggle Dogs vs Cats）。
 
